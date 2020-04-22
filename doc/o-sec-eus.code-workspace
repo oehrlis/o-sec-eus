@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../o-db-docker"
+		},
+		{
+			"path": "../../doag2018"
+		},
+		{
+			"path": "../../share.oradba.ch"
+		},
+		{
+			"path": "../../o-sec-eus-pub"
+		}
+	],
+	"settings": {}
+}
