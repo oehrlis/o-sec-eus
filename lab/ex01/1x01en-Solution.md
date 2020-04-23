@@ -19,51 +19,42 @@ The following steps are performed in this exercise:
 
 Depending on the client OS and used SSH client the solution vary. The examples shown here is using raw SSH and putty commands.
 
-- Login to your individual OCI compute instance via jump host `osec-jumpNN.trivadislabs.com`
-- Login to the DB server `10.0.1.6` or `db.trivadislab.com` over jump host and/or `ssh` ProxyCommand.
-- Login to the OUD server `10.0.1.5` or `oud.trivadislab.com` over jump host and/or `ssh` ProxyCommand.
-- Setup SSH port forwarding for remote desktop (3389).
+The following steps have been performed on *your* Client e.g Windows, MacOS or Linux client. If necessary, adjust the commands, filenames or the host name according to your environment.
+
+- Start a *Putty* session from command line to log into your jump host. Replace **NN** with the number of you host.
+
+```cmd
+putty -ssh opc@osec-jumpNN.trivadislabs.com -i keys/id_rsa_osec-jumpNN.ppk
+```
+
+- Start a *SSH* session from command line. Replace **NN** with the number of you host.
+
+```bash
+ssh opc@osec-jumpNN.trivadislabs.com -i keys/id_rsa_osec-jumpNN
+```
+
+- Use a *SSH* proxy to directly access the DB server. Replace **NN** with the number of you host.
+
+```bash
+ssh -i keys/id_rsa_osec-jumpNN -YA -o ProxyCommand="ssh -W %h:%p opc@osec-jumpNN.trivadislabs.com" oracle@10.0.1.6
+```
+
+- Use a *SSH* proxy to directly access the DB server. Replace **NN** with the number of you host.
+
+```bash
+ssh -i keys/id_rsa_osec-jumpNN -YA -o ProxyCommand="ssh -W %h:%p opc@osec-jumpNN.trivadislabs.com" oracle@10.0.1.5
+```
+
+- Setup port forwarding for MS Remote Desktop via *SSH* or *PUTTY*. Replace **NN** with the number of you host.
+
+```bash
+ssh -A -L 33890:10.0.1.4:3389 opc@osec-jumpNN.trivadislabs.com
+
+putty.exe -ssh -A -i id_rsa_osec-jumpNN.ppk -L 33890:10.0.1.4:3389 opc@osec-jumpNN.trivadislabs.com
+```
+
 - Login to the AD server `10.0.1.4` or `ad.trivadislab.com` using MS remote desktop over port forwarding.
-- Check environments on DB server and AD server. OUD is currently still rather empty.
 
-The following steps have been performed on the *ol7docker00* host. If necessary, adjust the commands, filenames or the host name according to your environment.
+!["RDP Dialog MacOS"](images/rdb_connect.png)
 
-- Start a Putty session from command line.
-
-```bash
-putty -ssh opc@ol7docker00.trivadislabs.com -i keys/id_rsa_ol7docker00.ppk
-```
-
-- Alternatively start a SSH session from command line
-
-```bash
-ssh opc@ol7docker00.trivadislabs.com -i id_rsa_ol7docker00
-```
-
-- Switch to user *oracle*
-
-```bash
-sudo su - oracle
-```
-
-- Run *docker images* to see which images are available
-
-```bash
-docker images
-```
-
-- Run *docker volumes* to see which volumes are available
-
-```bash
-docker volumes ls
-```
-
-- Check the different directories and aliases.
-
-```bash
-cd /u01/volumes
-cdl
-ex01
-o-db-docker
-```
 </div>

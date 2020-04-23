@@ -1,17 +1,21 @@
-## Exercise 1: Get known the Environment
+## Exercise 2: Database Authentication
 
 ### Exercise Goals
 
-Simple exercise to get to know the environment.
-
+- Getting to know the exercise environment, BasEnv and the databases.
+- Consolidate your knowledge in the area of password authentication and password hashes.
 - Everybody can access his/her compute instance.
+
+Working environment for the exercise:
+
+- **Server:** db.trivadislabs.com
+- **DB:** TDB190S or TDB190C
 
 ### Tasks
 
-- Login to your individual OCI compute instance eg. *ol7dockerXX*.
-- Switch to user *oracle*.
-- Check what Docker images are available.
-- Check directories for workshop and software.
+- Checking the current Password Verifier
+- Adjusting the Password Verifier
+- Optional tests with legacy Password Verifier.
 
 <!-- Stuff between the <div class="notes"> will be rendered as pptx slide notes -->
 <div class="notes">
