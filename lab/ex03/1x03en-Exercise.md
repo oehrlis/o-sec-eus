@@ -1,17 +1,21 @@
-## Exercise 1: Get known the Environment
+## Exercise 3: Kerberos Authentication
 
 ### Exercise Goals
 
-Simple exercise to get to know the environment.
-
-- Everybody can access his/her compute instance.
+Configuration of Kerberos Authentication and successful login locally (Linux VM)
 
 ### Tasks
 
-- Login to your individual OCI compute instance eg. *ol7dockerXX*.
-- Switch to user *oracle*.
-- Check what Docker images are available.
-- Check directories for workshop and software.
+- Review AD configuration and service principle
+- Setup DB Server for Kerberos
+- Creating a user with Kerberos authentication and successful login locally (Linux VM)
+- Everybody can use kerberos authentication.
+
+Working environment for the exercise:
+
+- **Server:** db.trivadislabs.com
+- **AD:** ad.trivadislabs.com
+- **DB:** TDB190S or TDB190C
 
 <!-- Stuff between the <div class="notes"> will be rendered as pptx slide notes -->
 <div class="notes">

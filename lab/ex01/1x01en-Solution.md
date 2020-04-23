@@ -33,28 +33,38 @@ putty -ssh opc@osec-jumpNN.trivadislabs.com -i keys/id_rsa_osec-jumpNN.ppk
 ssh opc@osec-jumpNN.trivadislabs.com -i keys/id_rsa_osec-jumpNN
 ```
 
-- Use a *SSH* proxy to directly access the DB server. Replace **NN** with the number of you host.
+- Use a *SSH* proxy to directly access the DB server (Use 10.0.1.6, db.trivadislabs.com or just db). Replace **NN** with the number of you host.
 
 ```bash
-ssh -i keys/id_rsa_osec-jumpNN -YA -o ProxyCommand="ssh -W %h:%p opc@osec-jumpNN.trivadislabs.com" oracle@10.0.1.6
+ssh -i keys/id_rsa_osec-jumpNN -YA -o ProxyCommand="ssh -W %h:%p opc@osec-jumpNN.trivadislabs.com" oracle@db
 ```
 
-- Use a *SSH* proxy to directly access the DB server. Replace **NN** with the number of you host.
+- Use a *SSH* proxy to directly access the DB server (Use 10.0.1.5, oud.trivadislabs.com or just oud) Replace **NN** with the number of you host.
 
 ```bash
-ssh -i keys/id_rsa_osec-jumpNN -YA -o ProxyCommand="ssh -W %h:%p opc@osec-jumpNN.trivadislabs.com" oracle@10.0.1.5
+ssh -i keys/id_rsa_osec-jumpNN -YA -o ProxyCommand="ssh -W %h:%p opc@osec-jumpNN.trivadislabs.com" oracle@oud
 ```
 
 - Setup port forwarding for MS Remote Desktop via *SSH* or *PUTTY*. Replace **NN** with the number of you host.
 
 ```bash
-ssh -A -L 33890:10.0.1.4:3389 opc@osec-jumpNN.trivadislabs.com
+ssh -A -L 33890:ad.trivadislabs.com:3389 opc@osec-jumpNN.trivadislabs.com
 
-putty.exe -ssh -A -i id_rsa_osec-jumpNN.ppk -L 33890:10.0.1.4:3389 opc@osec-jumpNN.trivadislabs.com
+putty.exe -ssh -A -i id_rsa_osec-jumpNN.ppk -L 33890:ad.trivadislabs.com:3389 opc@osec-jumpNN.trivadislabs.com
 ```
+
+- configure *Putty* port forwarding
+
+!["Putty Session Configuration"](../../doc/images/PuttyConf01.png)
+
+!["Putty Session User"](../../doc/images/PuttyConf02.png)
+
+!["Putty Auth Key and Agent Forwarding"](../../doc/images/PuttyConf03.png)
+
+!["Putty Port Forwarding for RDP"](../../doc/images/PuttyConf03.png)
 
 - Login to the AD server `10.0.1.4` or `ad.trivadislab.com` using MS remote desktop over port forwarding.
 
-!["RDP Dialog MacOS"](images/rdb_connect.png)
+!["RDP Dialog MacOS"](../../doc/images/rdb_connect.png)
 
 </div>

@@ -24,7 +24,7 @@ SQLNET.EXPIRE_TIME = 10
 NAMES.DEFAULT_DOMAIN=trivadislabs.com
 
 # Name resolution priority
-NAMES.DIRECTORY_PATH=(LDAP, TNSNAMES, EZCONNECT )
+NAMES.DIRECTORY_PATH=(TNSNAMES, EZCONNECT )
 
 ##############################################################################
 # you need to disable ADR if you need to trace Oracle Net
