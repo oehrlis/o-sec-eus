@@ -33,7 +33,7 @@ Für die Kerberos Authentifizierung wird ein Service Principle benötigt. Der En
 Nachdem die Account Optionen angepasst wurden, ist für diesen Benutzer eine Keytab Datei zu erstellen. Öffnen Sie dazu ein Command Prompt (``cmd.exe``) und führen ``ktpass.exe`` aus.
 
 ```bash
-ktpass.exe -princ oracle/db.trivadislabs.com@TRIVADISLABS.COM -mapuser db.trivadislabs.com -pass LAB01schulung -crypto ALL -ptype KRB5_NT_PRINCIPAL  -out C:\u00\app\oracle\network\admin\db.trivadislabs.com.keytab
+ktpass.exe -princ oracle/db.trivadislabs.com@TRIVADISLABS.COM -mapuser db.trivadislabs.com -pass LAB01schulung -crypto ALL -ptype KRB5_NT_PRINCIPAL  -out C:\oracle\network\admin\db.trivadislabs.com.keytab
 ```
 
 Überprüfen Sie anschliessend den Service Principle Names (SPN) mit ``setspn``
